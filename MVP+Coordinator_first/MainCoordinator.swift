@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+//protocol MainCoordinatorDelegate {
+//    var coordinator: MainCoordinator? { get set }
+//}
+
 class MainCoordinator: Coordinator {
     var childCoordinator: [Coordinator]? = []
     
@@ -15,8 +19,11 @@ class MainCoordinator: Coordinator {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
+    // create method which handles with initial VC
     func start() {
+        let vc = NewsViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: false)
         
     }
     

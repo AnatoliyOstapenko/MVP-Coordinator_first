@@ -7,11 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NewsViewController: UIViewController {
+    
+    weak var coordinator: MainCoordinator? // init MainCoordinator
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        title = "NEWS"
+        view.backgroundColor = .cyan
     }
 
 
