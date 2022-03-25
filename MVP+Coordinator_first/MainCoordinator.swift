@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-//protocol MainCoordinatorDelegate {
-//    var coordinator: MainCoordinator? { get set }
-//}
-
 class MainCoordinator: Coordinator {
     var childCoordinator: [Coordinator]? = []
     

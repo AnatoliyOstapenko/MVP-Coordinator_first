@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC17B3F127EE4ECC0080802E /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17B3F027EE4ECC0080802E /* NewsTableViewCell.swift */; };
 		BC9D77DE27EDF6D0008554EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D77DD27EDF6D0008554EC /* AppDelegate.swift */; };
 		BC9D77E027EDF6D0008554EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D77DF27EDF6D0008554EC /* SceneDelegate.swift */; };
 		BC9D77E227EDF6D0008554EC /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D77E127EDF6D0008554EC /* NewsViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC17B3F027EE4ECC0080802E /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		BC9D77DA27EDF6D0008554EC /* MVP+Coordinator_first.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVP+Coordinator_first.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC9D77DD27EDF6D0008554EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC9D77DF27EDF6D0008554EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				BC9D77DD27EDF6D0008554EC /* AppDelegate.swift */,
 				BC9D77DF27EDF6D0008554EC /* SceneDelegate.swift */,
 				BC9D77E127EDF6D0008554EC /* NewsViewController.swift */,
+				BC17B3F027EE4ECC0080802E /* NewsTableViewCell.swift */,
 				BC9D77F427EDF798008554EC /* Coordinator.swift */,
 				BC9D77F627EDF906008554EC /* MainCoordinator.swift */,
 				BC9D77E927EDF6D2008554EC /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC9D77E227EDF6D0008554EC /* NewsViewController.swift in Sources */,
+				BC17B3F127EE4ECC0080802E /* NewsTableViewCell.swift in Sources */,
 				BC9D77F727EDF906008554EC /* MainCoordinator.swift in Sources */,
 				BC9D77DE27EDF6D0008554EC /* AppDelegate.swift in Sources */,
 				BC9D77F527EDF798008554EC /* Coordinator.swift in Sources */,
