@@ -14,6 +14,7 @@
 		BC9D77EA27EDF6D2008554EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC9D77E927EDF6D2008554EC /* Assets.xcassets */; };
 		BC9D77ED27EDF6D2008554EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC9D77EB27EDF6D2008554EC /* LaunchScreen.storyboard */; };
 		BC9D77F527EDF798008554EC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D77F427EDF798008554EC /* Coordinator.swift */; };
+		BC9D77F727EDF906008554EC /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D77F627EDF906008554EC /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		BC9D77EC27EDF6D2008554EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC9D77EE27EDF6D2008554EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC9D77F427EDF798008554EC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BC9D77F627EDF906008554EC /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				BC9D77DF27EDF6D0008554EC /* SceneDelegate.swift */,
 				BC9D77E127EDF6D0008554EC /* ViewController.swift */,
 				BC9D77F427EDF798008554EC /* Coordinator.swift */,
+				BC9D77F627EDF906008554EC /* MainCoordinator.swift */,
 				BC9D77E927EDF6D2008554EC /* Assets.xcassets */,
 				BC9D77EB27EDF6D2008554EC /* LaunchScreen.storyboard */,
 				BC9D77EE27EDF6D2008554EC /* Info.plist */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC9D77E227EDF6D0008554EC /* ViewController.swift in Sources */,
+				BC9D77F727EDF906008554EC /* MainCoordinator.swift in Sources */,
 				BC9D77DE27EDF6D0008554EC /* AppDelegate.swift in Sources */,
 				BC9D77F527EDF798008554EC /* Coordinator.swift in Sources */,
 				BC9D77E027EDF6D0008554EC /* SceneDelegate.swift in Sources */,
