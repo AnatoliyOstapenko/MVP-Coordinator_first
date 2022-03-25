@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NewsPresenterView: AnyObject {
-    func setData(news: [Articles?])
+    func setData(news: [Articles])
 }
 
 class NewsPresenter {
@@ -25,7 +25,7 @@ class NewsPresenter {
         networkService.getData { [weak self] results in
             switch results {
             case .success(let data):
-                self?.view?.setData(news: data)
+                self?.view?.setData(news: data.articles)
             case .failure(let error):
                 print(error.localizedDescription)
             }
