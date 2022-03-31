@@ -9,15 +9,18 @@ import UIKit
 
 class NewsTableViewCell: UITableViewCell {
     
+    lazy var presenter = NewsPresenter(image: self, networkService: NetworkService())
+    
     var newsImageView = UIImageView()
     var titleLabel = UILabel()
     var descriptionLabel = UILabel()
     var spinner = UIActivityIndicatorView()
+    var imageCell: UIImage?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureCell()
-        spinner.startAnimating()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -25,47 +28,26 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     func updateUI(view: Articles) {
+        spinner.startAnimating()
+        print("spinner start action")
         titleLabel.text = view.title
         descriptionLabel.text = view.description
-        let dispatch = DispatchQueue.global(qos: .utility)
-        dispatch.async {
-            self.getingImages(string: view.urlToImage) { [weak self] result in
+        presenter.getImage(urlString: view.urlToImage)
                 DispatchQueue.main.async {
-                    switch result {
-                    case .success(let image):
-                        self?.newsImageView.image = image
-                        self?.spinner.stopAnimating()
-                    case .failure(let error):
-                        self?.newsImageView.image = UIImage(named: "images")
-                        print(error)
-                    }
+                    print("spinner stop action")
+                    self.newsImageView.image = self.imageCell
+                    self.spinner.stopAnimating()
                 }
-                
-            }
-        }
-        
+           
     }
-    
-    func getingImages(string: String?, completion: @escaping(Result< UIImage, Error>) -> Void) {
-        if let url = URL(string: string ?? "noImage") {
-            let task = URLSession.shared.dataTask(with: url) { data, _, error in
-                guard error == nil, let data = data else { return }
-                guard let image = UIImage(data: data) else { return }
-                completion(.success(image))
-            }
-            task.resume()
-        }
-    }
-    
-    
-    
-    
+
     func configureCell() {
         newsImageViewConfigure()
         titleLabelConfigure()
         descriptionLabelConfigure()
         spinnerConfigure()
     }
+    
     func spinnerConfigure() {
         addSubview(spinner)
         spinner.style = .large
@@ -109,6 +91,10 @@ class NewsTableViewCell: UITableViewCell {
         descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
-    
-    
+}
+//MARK: - NewsPresenterImage
+extension NewsTableViewCell: NewsPresenterImage {
+    func setImage(image: UIImage?) {
+            self.imageCell = image
+    }
 }

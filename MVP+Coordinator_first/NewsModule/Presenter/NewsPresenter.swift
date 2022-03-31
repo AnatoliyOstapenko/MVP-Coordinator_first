@@ -10,16 +10,23 @@ import UIKit
 
 protocol NewsPresenterView: AnyObject {
     func setData(news: [Articles])
+}
+protocol NewsPresenterImage: AnyObject {
     func setImage(image: UIImage?)
 }
 
 class NewsPresenter {
 
     weak var view: NewsPresenterView?
+    weak var image: NewsPresenterImage?
     private let networkService: NetworkService
  
     init(view: NewsPresenterView, networkService: NetworkService) {
         self.view = view
+        self.networkService = networkService
+    }
+    init(image: NewsPresenterImage, networkService: NetworkService) {
+        self.image = image
         self.networkService = networkService
     }
     
@@ -35,13 +42,12 @@ class NewsPresenter {
     }
     
     func getImage(urlString: String?) {
-        self.networkService.getImage(urlString: urlString) { [weak self] data in
-            switch data {
-            case .success(let image):
-                self?.view?.setImage(image: image)
-            case .failure(let error):
-                print(error.localizedDescription)
-                
+            self.networkService.getingImages(string: urlString) { [weak self] data in
+                switch data {
+                case .success(let image):
+                    self?.image?.setImage(image: image)
+                case .failure(let error):
+                    print(error.localizedDescription)
             }
         }
     }

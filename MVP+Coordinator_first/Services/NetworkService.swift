@@ -25,15 +25,16 @@ class NetworkService: NetworkServiceProtocol {
         }
         task.resume()
     }
-
-    func getImage(urlString: String?, completion: @escaping (Result <UIImage, Error>) -> Void) {
-        guard let string  = urlString, let url = URL(string: string) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            guard error == nil, let data = data else { return }
-            guard let image = UIImage(data: data) else { return }
-            completion(.success(image))
+    
+    func getingImages(string: String?, completion: @escaping(Result< UIImage, Error>) -> Void) {
+        if let url = URL(string: string ?? "noImage") {
+            let task = URLSession.shared.dataTask(with: url) { data, _, error in
+                guard error == nil, let data = data else { return }
+                guard let image = UIImage(data: data) else { return }
+                completion(.success(image))
+            }
+            task.resume()
         }
-        task.resume()
     }
 }
 

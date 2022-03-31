@@ -12,9 +12,7 @@ class NewsViewController: UIViewController {
     lazy var presenter = NewsPresenter(view: self, networkService: NetworkService())
     weak var coordinator: MainCoordinator? // init MainCoordinator
     var array: [Articles] = []
-    var image: UIImage?
     var newsTableView = UITableView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,17 +52,6 @@ extension NewsViewController: UITableViewDelegate {
 }
 // MARK: - Presenter Delegate
 extension NewsViewController: NewsPresenterView {
-    func setImage(image: UIImage?) {
-        
-        //            guard let image = image else { return }
-        //            self.image = image
-        //            DispatchQueue.main.async {
-        //                self.newsTableView.reloadData()
-        //
-        //            }
-        
-        
-    }
     func setData(news: [Articles]) {
         array = news
         DispatchQueue.main.async {
