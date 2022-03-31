@@ -14,12 +14,11 @@ class NewsViewController: UIViewController {
     var array: [Articles] = []
     var image: UIImage?
     var newsTableView = UITableView()
-    var spinner = UIActivityIndicatorView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         newsTableViewConfigure()
-        spinnerConfigure()
         presenter.getNews()
         
     }
@@ -33,13 +32,7 @@ class NewsViewController: UIViewController {
         newsTableView.delegate = self
     }
     
-    func spinnerConfigure() {
-        view.addSubview(spinner)
-        spinner.style = .large
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.centerYAnchor.constraint(equalTo: newsTableView.centerYAnchor).isActive = true
-        spinner.centerXAnchor.constraint(equalTo: newsTableView.centerXAnchor).isActive = true
-    }
+    
 }
 
 // MARK: - TableView DataSource
@@ -50,33 +43,7 @@ extension NewsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsTableViewCell
-        cell.titleLabel.text = array[indexPath.row].title
-        cell.descriptionLabel.text = array[indexPath.row].description
-        
-        if let url = URL(string: self.array[indexPath.row].urlToImage ?? "https://www.apple.com") {
-            let task = URLSession.shared.dataTask(with: url) { data, _, error in
-                guard error == nil, let data = data else { return }
-                guard let image = UIImage(data: data) else { return }
-                DispatchQueue.main.async {
-                    cell.newsImageView.image = image
-                }
-            }
-            task.resume()
-        }
-        
-        
-        
-        
-        
-        
-        
-        //       presenter.getImage(urlString: self.array[indexPath.row].urlToImage)
-        //       cell.newsImageView.image = self.image
-        
-        
-        
-        
-        
+        cell.updateUI(view: array[indexPath.row])
         return cell
     }
 }

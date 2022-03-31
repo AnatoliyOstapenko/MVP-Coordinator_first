@@ -12,21 +12,66 @@ class NewsTableViewCell: UITableViewCell {
     var newsImageView = UIImageView()
     var titleLabel = UILabel()
     var descriptionLabel = UILabel()
+    var spinner = UIActivityIndicatorView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureCell()
+        spinner.startAnimating()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateUI(view: Articles) {
+        titleLabel.text = view.title
+        descriptionLabel.text = view.description
+        let dispatch = DispatchQueue.global(qos: .utility)
+        dispatch.async {
+            self.getingImages(string: view.urlToImage) { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let image):
+                        self?.newsImageView.image = image
+                        self?.spinner.stopAnimating()
+                    case .failure(let error):
+                        self?.newsImageView.image = UIImage(named: "images")
+                        print(error)
+                    }
+                }
+                
+            }
+        }
+        
+    }
+    
+    func getingImages(string: String?, completion: @escaping(Result< UIImage, Error>) -> Void) {
+        if let url = URL(string: string ?? "noImage") {
+            let task = URLSession.shared.dataTask(with: url) { data, _, error in
+                guard error == nil, let data = data else { return }
+                guard let image = UIImage(data: data) else { return }
+                completion(.success(image))
+            }
+            task.resume()
+        }
+    }
+    
+    
+    
     
     func configureCell() {
         newsImageViewConfigure()
         titleLabelConfigure()
         descriptionLabelConfigure()
+        spinnerConfigure()
+    }
+    func spinnerConfigure() {
+        addSubview(spinner)
+        spinner.style = .large
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.centerYAnchor.constraint(equalTo: newsImageView.centerYAnchor).isActive = true
+        spinner.centerXAnchor.constraint(equalTo: newsImageView.centerXAnchor).isActive = true
     }
 
     func newsImageViewConfigure() {
