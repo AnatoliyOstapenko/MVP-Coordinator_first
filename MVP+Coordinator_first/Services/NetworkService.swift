@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 protocol NetworkServiceProtocol {
     func getData(completion: @escaping(Result <NewsModel, Error>) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {
-    func getData(completion: @escaping (Result<NewsModel, Error>) -> Void) {
+    
+    func getData(completion: @escaping (Result <NewsModel, Error>) -> Void) {
         guard let url = URL(string: "\(Constants.urlString)\(Password.keyAPI)") else { return }
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             guard error == nil, let data = data else { return }
@@ -23,4 +25,15 @@ class NetworkService: NetworkServiceProtocol {
         }
         task.resume()
     }
+
+    func getImage(urlString: String?, completion: @escaping (Result <UIImage, Error>) -> Void) {
+        guard let string  = urlString, let url = URL(string: string) else { return }
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            guard error == nil, let data = data else { return }
+            guard let image = UIImage(data: data) else { return }
+            completion(.success(image))
+        }
+        task.resume()
+    }
 }
+

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct NewsModel: Codable {
     
@@ -14,13 +15,13 @@ struct NewsModel: Codable {
 
 struct Articles: Codable {
     
-    let source: Name?
+    let source: Name
     let description: String
     let publishedAt: String
     let title: String
     let url: String
     let urlToImage: String? // it should be optional in case not available image on site
-    
+
 }
 struct Name: Codable {
     let publisher: String
@@ -29,4 +30,5 @@ struct Name: Codable {
         case publisher = "name"
     }
 }
+
 

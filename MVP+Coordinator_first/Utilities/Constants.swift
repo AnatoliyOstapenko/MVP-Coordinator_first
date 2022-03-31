@@ -8,5 +8,5 @@
 import Foundation
 
 struct Constants {
-    static let urlString = "https://newsapi.org/v2/everything?q=usa&apiKey="
+    static let urlString = "https://newsapi.org/v2/everything?q=ukraine&apiKey="
 }

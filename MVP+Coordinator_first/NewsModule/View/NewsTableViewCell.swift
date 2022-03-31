@@ -28,18 +28,15 @@ class NewsTableViewCell: UITableViewCell {
         titleLabelConfigure()
         descriptionLabelConfigure()
     }
-    
-    
+
     func newsImageViewConfigure() {
         addSubview(newsImageView)
         newsImageView.clipsToBounds = true
-        newsImageView.layer.cornerRadius = 10
-        newsImageView.backgroundColor = .cyan
+        newsImageView.contentMode = .scaleAspectFill
         newsImageView.translatesAutoresizingMaskIntoConstraints = false
         newsImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         newsImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         newsImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        newsImageView.heightAnchor.constraint(equalToConstant: 160).isActive = true
         newsImageView.widthAnchor.constraint(equalTo: newsImageView.heightAnchor, multiplier: 3/2).isActive = true
     }
     
@@ -47,19 +44,19 @@ class NewsTableViewCell: UITableViewCell {
         addSubview(titleLabel)
         titleLabel.text = "title"
         titleLabel.textAlignment = .left
-        titleLabel.font = .systemFont(ofSize: 26, weight: .bold)
+        titleLabel.font = .boldSystemFont(ofSize: 24)
+        titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 5).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     func descriptionLabelConfigure() {
         addSubview(descriptionLabel)
         descriptionLabel.text = "Description"
         descriptionLabel.textAlignment = .left
-        descriptionLabel.adjustsFontSizeToFitWidth = true
+        descriptionLabel.font = .italicSystemFont(ofSize: 14)
         descriptionLabel.numberOfLines = 0
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
