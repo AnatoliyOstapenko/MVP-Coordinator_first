@@ -22,6 +22,11 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
         
     }
+    func emojiVC() {
+        let vc = EmojiViewController()
+        
+        navigationController.pushViewController(vc, animated: true)
+    }
     
     
 }

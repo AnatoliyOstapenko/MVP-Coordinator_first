@@ -20,7 +20,7 @@ class NewsTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureCell()
-        
+        spinner.startAnimating()
     }
     
     required init?(coder: NSCoder) {
@@ -28,17 +28,13 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     func updateUI(view: Articles) {
-        spinner.startAnimating()
-        print("spinner start action")
-        titleLabel.text = view.title
-        descriptionLabel.text = view.description
-        presenter.getImage(urlString: view.urlToImage)
-                DispatchQueue.main.async {
-                    print("spinner stop action")
-                    self.newsImageView.image = self.imageCell
-                    self.spinner.stopAnimating()
-                }
-           
+ 
+        self.presenter.getImage(urlString: view.urlToImage)
+        self.titleLabel.text = view.title
+        self.descriptionLabel.text = view.description
+        self.newsImageView.image = self.imageCell
+        self.spinner.stopAnimating()
+        
     }
 
     func configureCell() {

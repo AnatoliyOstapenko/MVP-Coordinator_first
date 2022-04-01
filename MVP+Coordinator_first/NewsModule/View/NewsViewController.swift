@@ -18,7 +18,17 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         newsTableViewConfigure()
         presenter.getNews()
+        rightBarButtonConfigure()
         
+    }
+    
+    func rightBarButtonConfigure() {
+        let rightBarButton = UIBarButtonItem(title: "next screen", style: .plain, target: self, action: #selector(rightBarButtonPressed(sender:)))
+        navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    @objc func rightBarButtonPressed(sender: Any?) {
+        coordinator?.emojiVC()
     }
     
     func newsTableViewConfigure() {
@@ -41,7 +51,7 @@ extension NewsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsTableViewCell
-        cell.updateUI(view: array[indexPath.row])
+        cell.updateUI(view: self.array[indexPath.row])
         return cell
     }
 }

@@ -16,11 +16,11 @@ protocol NewsPresenterImage: AnyObject {
 }
 
 class NewsPresenter {
-
+    
     weak var view: NewsPresenterView?
     weak var image: NewsPresenterImage?
     private let networkService: NetworkService
- 
+    
     init(view: NewsPresenterView, networkService: NetworkService) {
         self.view = view
         self.networkService = networkService
@@ -31,23 +31,30 @@ class NewsPresenter {
     }
     
     func getNews() {
-        self.networkService.getData { [weak self] results in
-            switch results {
-            case .success(let data):
-                self?.view?.setData(news: data.articles)
-            case .failure(let error):
-                print(error.localizedDescription)
+        let dispatch = DispatchQueue.global(qos: .utility)
+        dispatch.async {
+            self.networkService.getData { [weak self] results in
+                switch results {
+                case .success(let data):
+                    self?.view?.setData(news: data.articles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
+        
     }
     
     func getImage(urlString: String?) {
+        let dispatch = DispatchQueue.global(qos: .utility)
+        dispatch.async {
             self.networkService.getingImages(string: urlString) { [weak self] data in
                 switch data {
                 case .success(let image):
                     self?.image?.setImage(image: image)
                 case .failure(let error):
                     print(error.localizedDescription)
+                }
             }
         }
     }
