@@ -52,11 +52,8 @@ class SecondViewController: UIViewController {
         secondTableView.delegate = self
         secondTableView.frame = view.bounds
     }
-    
-    
-    
-    
 }
+
 // MARK: - TableView DataSource
 extension SecondViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,12 +66,9 @@ extension SecondViewController: UITableViewDataSource {
         return cell
     }
 }
+
 // MARK: - TableView Delegate
 extension SecondViewController: UITableViewDelegate {
-    
-//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-//
-//    }
     
   // MARK: - Delete
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -98,8 +92,8 @@ extension SecondViewController: UITableViewDelegate {
     }
     // MARK: - Swipe
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        // done action:
-        func done(at indexPath: IndexPath) -> UIContextualAction {
+        // delete action:
+        let delete: UIContextualAction = {
             let action = UIContextualAction(style: .destructive, title: "Delete") { action, view, completion in
                 self.object.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -108,12 +102,27 @@ extension SecondViewController: UITableViewDelegate {
             action.image = UIImage(systemName: "trash.circle")
             action.backgroundColor = .systemPink
             return action
-        }
-        let done = done(at: indexPath)
-        return UISwipeActionsConfiguration(actions: [done])
+        }()
+        // done action
+        let done: UIContextualAction = {
+            var array = object[indexPath.row]
+            let action = UIContextualAction(style: .normal, title: nil) { action, view, completion in
+                array.isFavorite = !array.isFavorite //change bool value
+                self.object[indexPath.row] = array
+                completion(true)
+            }
+            switch object[indexPath.row].isFavorite {
+            case true:
+                action.backgroundColor = .systemMint
+                action.image = UIImage(systemName: "checkmark.circle")
+                action.title = "Done"
+            case false:
+                action.backgroundColor = .systemGray
+                action.image = UIImage(systemName: "checkmark.circle.trianglebadge.exclamationmark")
+                action.title = "Not Done Yet"
+            }
+            return action
+        }()
+        return UISwipeActionsConfiguration(actions: [delete, done])
     }
-    
-    
-    
-    
 }

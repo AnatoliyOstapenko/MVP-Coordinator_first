@@ -9,9 +9,8 @@ import Foundation
 import UIKit
 
 struct SecondModel {
-    
-    let title: String
-    let description: String
-    let image: String
-    let isFavorite: Bool
+    var title: String
+    var description: String
+    var image: String
+    var isFavorite: Bool
 }
