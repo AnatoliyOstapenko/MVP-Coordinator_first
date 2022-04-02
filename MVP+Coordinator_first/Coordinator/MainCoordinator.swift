@@ -23,7 +23,7 @@ class MainCoordinator: Coordinator {
         
     }
     func emojiVC() {
-        let vc = EmojiViewController()
+        let vc = SecondViewController()
         
         navigationController.pushViewController(vc, animated: true)
     }
