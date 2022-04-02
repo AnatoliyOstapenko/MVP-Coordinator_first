@@ -18,7 +18,7 @@ class NewsTableViewCell: UITableViewCell {
  
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureCell()
+        setCell()
     }
     
     required init?(coder: NSCoder) {
@@ -36,15 +36,17 @@ class NewsTableViewCell: UITableViewCell {
         titleLabel.text = view.title
         descriptionLabel.text = view.description
         newsImageView.image = UIImage(systemName: view.image)
+        newsImageView.tintColor = .systemPink
+        newsImageView.contentMode = .scaleAspectFit
     }
 
-    func configureCell() {
-        newsImageViewConfigure()
-        titleLabelConfigure()
-        descriptionLabelConfigure()
+    func setCell() {
+        setNewsImageView()
+        setTitleLabel()
+        setDescriptionLabel()
     }
 
-    func newsImageViewConfigure() {
+    func setNewsImageView() {
         addSubview(newsImageView)
         newsImageView.clipsToBounds = true
         newsImageView.layer.cornerRadius = 8
@@ -58,7 +60,7 @@ class NewsTableViewCell: UITableViewCell {
         newsImageView.widthAnchor.constraint(equalTo: newsImageView.heightAnchor, multiplier: 3/2).isActive = true
     }
     
-    func titleLabelConfigure() {
+    func setTitleLabel() {
         addSubview(titleLabel)
         titleLabel.text = "TITLE"
         titleLabel.font = .boldSystemFont(ofSize: 14)
@@ -71,7 +73,7 @@ class NewsTableViewCell: UITableViewCell {
         titleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .vertical)
     }
     
-    func descriptionLabelConfigure() {
+    func setDescriptionLabel() {
         addSubview(descriptionLabel)
         descriptionLabel.text = "Description............"
         descriptionLabel.textAlignment = .left
