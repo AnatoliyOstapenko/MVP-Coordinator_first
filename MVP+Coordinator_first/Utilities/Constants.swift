@@ -9,6 +9,6 @@ import Foundation
 
 struct Constants {
     static let urlString = "https://newsapi.org/v2/everything?q=ukraine&apiKey="
-    static let cellEmoji = "toEmojiCell"
+    static let thirdCell = "thirdCell"
     static let newsCell = "newsCell"
 }

@@ -40,8 +40,9 @@ class SecondViewController: UIViewController {
     }
 
     
-    @objc func addBarButtonPressed(sender: Any?) {
+    @objc func addBarButtonPressed(sender: UIBarButtonItem?) {
         
+        coordinator?.goToThirdVC(sender: sender, viewController: self)
     }
     
     func setSecondTableView() {
@@ -119,7 +120,7 @@ extension SecondViewController: UITableViewDelegate {
             case false:
                 action.backgroundColor = .systemGray
                 action.image = UIImage(systemName: "checkmark.circle.trianglebadge.exclamationmark")
-                action.title = "Not Done Yet"
+                action.title = "Not Done \n Yet"
             }
             return action
         }()

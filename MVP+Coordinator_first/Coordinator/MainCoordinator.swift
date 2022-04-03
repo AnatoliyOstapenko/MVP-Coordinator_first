@@ -22,10 +22,17 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
         
     }
-    func emojiVC() {
+    func goToSecondVC() {
         let vc = SecondViewController()
-        
+        vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func goToThirdVC(sender: UIBarButtonItem?, viewController: UIViewController) {
+        let vc = ThirdViewController()
+        let navController = UINavigationController(rootViewController: vc) //add second navController
+        viewController.present(navController, animated: true)
+        
     }
     
     

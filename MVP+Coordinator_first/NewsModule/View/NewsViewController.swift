@@ -16,7 +16,7 @@ class NewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newsTableViewConfigure()
+        setNewsTableView()
         presenter.getNews()
         rightBarButtonConfigure()
         
@@ -28,10 +28,10 @@ class NewsViewController: UIViewController {
     }
     
     @objc func rightBarButtonPressed(sender: Any?) {
-        coordinator?.emojiVC()
+        coordinator?.goToSecondVC()
     }
     
-    func newsTableViewConfigure() {
+    func setNewsTableView() {
         view.addSubview(newsTableView)
         title = "NEWS"
         newsTableView.register(NewsTableViewCell.self, forCellReuseIdentifier: "newsCell")
