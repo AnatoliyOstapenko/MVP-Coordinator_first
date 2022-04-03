@@ -24,6 +24,7 @@
 		BCE45D6D27F73C2B00F90446 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE45D6C27F73C2B00F90446 /* SecondViewController.swift */; };
 		BCE45D8B27F797FD00F90446 /* SecondModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE45D8A27F797FD00F90446 /* SecondModel.swift */; };
 		BCE45D9027F9B01000F90446 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE45D8F27F9B01000F90446 /* ThirdViewController.swift */; };
+		BCE45D9227F9F54F00F90446 /* ThirdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE45D9127F9F54E00F90446 /* ThirdTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		BCE45D6C27F73C2B00F90446 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		BCE45D8A27F797FD00F90446 /* SecondModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondModel.swift; sourceTree = "<group>"; };
 		BCE45D8F27F9B01000F90446 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		BCE45D9127F9F54E00F90446 /* ThirdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				BC9D77DD27EDF6D0008554EC /* AppDelegate.swift */,
 				BC9D77DF27EDF6D0008554EC /* SceneDelegate.swift */,
 				BCE45D8F27F9B01000F90446 /* ThirdViewController.swift */,
+				BCE45D9127F9F54E00F90446 /* ThirdTableViewCell.swift */,
 				BCE45D8E27F9AF5F00F90446 /* SecondModule */,
 				BC17B40227EE6A520080802E /* NewsModule */,
 				BC17B3F327EE5EE10080802E /* Coordinator */,
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCE45D8B27F797FD00F90446 /* SecondModel.swift in Sources */,
+				BCE45D9227F9F54F00F90446 /* ThirdTableViewCell.swift in Sources */,
 				BC17B3F527EE5F5F0080802E /* NewsModel.swift in Sources */,
 				BC17B3FB27EE64ED0080802E /* Constants.swift in Sources */,
 				BC9D77E227EDF6D0008554EC /* NewsViewController.swift in Sources */,
