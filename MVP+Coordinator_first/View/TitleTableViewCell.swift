@@ -16,9 +16,7 @@ class TitleTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setTitleTextField()
     }
-    
-    
-    
+
     func setTitleTextField() {
         titleField.placeholder = "Type a brief title"
         contentView.addSubview(titleField)
