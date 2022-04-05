@@ -22,7 +22,6 @@ struct Section {
 
 class ThirdViewController: UIViewController {
     
-    weak var coordinator: MainCoordinator?
     var models: [Section] = []
     var thirdTableView = UITableView()
 
@@ -35,7 +34,7 @@ class ThirdViewController: UIViewController {
     func configure() {
         models.append(Section(title: "First Section", options: [
             SettingsOption(title: "first", icon: UIImage(systemName: "gear"), iconBackgroundColor: .systemPink, handler: {
-                
+                print("Tap here....")
             }),
             SettingsOption(title: "second", icon: UIImage(systemName: "applelogo"), iconBackgroundColor: .systemPink, handler: {
                 
@@ -59,7 +58,7 @@ class ThirdViewController: UIViewController {
         
         
         ]))
-        models.append(Section(title: "Third Section", options: [
+        models.append(Section(title: "what happens Section", options: [
             SettingsOption(title: "first", icon: UIImage(systemName: "gear"), iconBackgroundColor: .systemPink, handler: {
                 
             }),
@@ -101,6 +100,10 @@ class ThirdViewController: UIViewController {
 // MARK: - DataSource
 extension ThirdViewController: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return models[section].title
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
     }
@@ -119,5 +122,7 @@ extension ThirdViewController: UITableViewDataSource {
 extension ThirdViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let models = models[indexPath.section].options[indexPath.row]
+        models.handler()
     }
 }

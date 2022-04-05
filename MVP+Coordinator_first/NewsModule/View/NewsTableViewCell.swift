@@ -39,6 +39,10 @@ class NewsTableViewCell: UITableViewCell {
         newsImageView.tintColor = .systemPink
         newsImageView.contentMode = .scaleAspectFit
     }
+    
+    func updateEditVC(view: String) {
+        
+    }
 
     func setCell() {
         setNewsImageView()

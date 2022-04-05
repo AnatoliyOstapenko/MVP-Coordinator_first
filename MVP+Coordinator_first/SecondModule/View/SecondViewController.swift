@@ -41,8 +41,8 @@ class SecondViewController: UIViewController {
 
     
     @objc func addBarButtonPressed(sender: UIBarButtonItem?) {
-        
-        coordinator?.goToThirdVC(sender: sender, viewController: self)
+        coordinator?.goToEditVC(view: self)
+        //coordinator?.goToThirdVC(viewController: self)
     }
     
     func setSecondTableView() {

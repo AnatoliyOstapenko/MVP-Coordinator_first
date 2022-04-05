@@ -13,6 +13,7 @@
 		BC17B3F927EE621C0080802E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17B3F827EE621C0080802E /* NetworkService.swift */; };
 		BC17B3FB27EE64ED0080802E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17B3FA27EE64ED0080802E /* Constants.swift */; };
 		BC17B40027EE69D80080802E /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17B3FF27EE69D80080802E /* NewsPresenter.swift */; };
+		BC84A43C27FC3F5600CD3F58 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84A43B27FC3F5600CD3F58 /* EditViewController.swift */; };
 		BC9D77DE27EDF6D0008554EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D77DD27EDF6D0008554EC /* AppDelegate.swift */; };
 		BC9D77E027EDF6D0008554EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D77DF27EDF6D0008554EC /* SceneDelegate.swift */; };
 		BC9D77E227EDF6D0008554EC /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D77E127EDF6D0008554EC /* NewsViewController.swift */; };
@@ -34,6 +35,7 @@
 		BC17B3F827EE621C0080802E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BC17B3FA27EE64ED0080802E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BC17B3FF27EE69D80080802E /* NewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
+		BC84A43B27FC3F5600CD3F58 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		BC9D77DA27EDF6D0008554EC /* MVP+Coordinator_first.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVP+Coordinator_first.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC9D77DD27EDF6D0008554EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC9D77DF27EDF6D0008554EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				BC9D77DF27EDF6D0008554EC /* SceneDelegate.swift */,
 				BCE45D8F27F9B01000F90446 /* ThirdViewController.swift */,
 				BCE45D9127F9F54E00F90446 /* ThirdTableViewCell.swift */,
+				BC84A43B27FC3F5600CD3F58 /* EditViewController.swift */,
 				BCE45D8E27F9AF5F00F90446 /* SecondModule */,
 				BC17B40227EE6A520080802E /* NewsModule */,
 				BC17B3F327EE5EE10080802E /* Coordinator */,
@@ -260,6 +263,7 @@
 				BC9D77E227EDF6D0008554EC /* NewsViewController.swift in Sources */,
 				BC17B40027EE69D80080802E /* NewsPresenter.swift in Sources */,
 				BCE45D6D27F73C2B00F90446 /* SecondViewController.swift in Sources */,
+				BC84A43C27FC3F5600CD3F58 /* EditViewController.swift in Sources */,
 				BC17B3F127EE4ECC0080802E /* NewsTableViewCell.swift in Sources */,
 				BCE45D9027F9B01000F90446 /* ThirdViewController.swift in Sources */,
 				BC9D77F727EDF906008554EC /* MainCoordinator.swift in Sources */,

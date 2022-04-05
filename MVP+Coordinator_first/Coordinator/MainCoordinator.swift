@@ -28,11 +28,16 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func goToThirdVC(sender: UIBarButtonItem?, viewController: UIViewController) {
+    func goToThirdVC(viewController: UIViewController) {
         let vc = ThirdViewController()
         let navController = UINavigationController(rootViewController: vc) //add second navController
         viewController.present(navController, animated: true)
         
+    }
+    func goToEditVC(view: UIViewController) {
+        let vc = EditViewController()
+        let navController = UINavigationController(rootViewController: vc)
+        view.present(navController, animated: true)
     }
     
     
