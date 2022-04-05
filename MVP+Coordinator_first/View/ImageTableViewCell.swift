@@ -27,7 +27,7 @@ class ImageTableViewCell: UITableViewCell {
         editImageView.clipsToBounds = true
         editImageView.layer.cornerRadius = 10
         editImageView.contentMode = .scaleAspectFit
-        addSubview(editImageView)
+        contentView.addSubview(editImageView)
         editImageView.translatesAutoresizingMaskIntoConstraints = false
         editImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         editImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true

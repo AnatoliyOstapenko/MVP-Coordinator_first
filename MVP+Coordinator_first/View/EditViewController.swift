@@ -20,12 +20,31 @@ class EditViewController: UIViewController {
     ]
     
     var editTableView = UITableView()
+    var cancelBarButton = UIBarButtonItem()
+    var saveBarButton = UIBarButtonItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavController()
         setEditTableView()
+        setBarButtons()
     }
+    
+    func setBarButtons() {
+        cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed(sender:)))
+        saveBarButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(savePressed(sender:)))
+        navigationItem.leftBarButtonItem = cancelBarButton
+        navigationItem.rightBarButtonItem = saveBarButton
+    }
+    
+    @objc func cancelPressed(sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func savePressed(sender: UIBarButtonItem) {
+        
+    }
+
     func configureNavController() {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.backgroundColor = .darkGray
