@@ -47,7 +47,7 @@ class SecondViewController: UIViewController {
     
     func setSecondTableView() {
         view.addSubview(secondTableView)
-        title = "Emoji"
+        title = "Second View"
         secondTableView.register(NewsTableViewCell.self, forCellReuseIdentifier: Constants.newsCell)
         secondTableView.dataSource = self
         secondTableView.delegate = self
