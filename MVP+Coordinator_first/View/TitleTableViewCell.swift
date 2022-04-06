@@ -15,29 +15,31 @@ class TitleTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setTitleTextField()
+        isTitleFilled()
     }
 
     func setTitleTextField() {
         titleField.placeholder = "Type a brief title"
         contentView.addSubview(titleField)
+        titleField.delegate = self
         titleField.translatesAutoresizingMaskIntoConstraints = false
         titleField.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         titleField.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         titleField.topAnchor.constraint(equalTo: topAnchor).isActive = true
         titleField.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         titleField.borderStyle = .roundedRect
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+        
 }
 
-//// MARK: - TextField Delegate
-//extension TitleTableViewCell: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        print(textField.text ?? "")
-//        return true
-//    }
-//}
+// MARK: - TextField Delegate
+extension TitleTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(textField.text ?? "")
+        return true
+    }
+}
