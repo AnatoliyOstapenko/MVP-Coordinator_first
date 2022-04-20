@@ -11,25 +11,17 @@ import UIKit
 protocol NewsPresenterView: AnyObject {
     func setData(news: [Articles])
 }
-protocol NewsPresenterImage: AnyObject {
-    func setImage(image: UIImage?)
-}
 
 class NewsPresenter {
     
     weak var view: NewsPresenterView?
-    weak var image: NewsPresenterImage?
     private let networkService: NetworkService
     
     init(view: NewsPresenterView, networkService: NetworkService) {
         self.view = view
         self.networkService = networkService
     }
-    init(image: NewsPresenterImage, networkService: NetworkService) {
-        self.image = image
-        self.networkService = networkService
-    }
-    
+
     func getNews() {
         let dispatch = DispatchQueue.global(qos: .utility)
         dispatch.async {
@@ -43,20 +35,6 @@ class NewsPresenter {
             }
         }
         
-    }
-    
-    func getImage(urlString: String?) {
-        let dispatch = DispatchQueue.global(qos: .utility)
-        dispatch.async {
-            self.networkService.getingImages(string: urlString) { [weak self] data in
-                switch data {
-                case .success(let image):
-                    self?.image?.setImage(image: image)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-        }
     }
   
 }

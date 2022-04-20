@@ -9,13 +9,13 @@ import UIKit
 
 class TitleTableViewCell: UITableViewCell {
     
+    
     static let titleCell = "titleCell"
     var titleField = UITextField()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setTitleTextField()
-        isTitleFilled()
     }
 
     func setTitleTextField() {

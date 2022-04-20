@@ -58,6 +58,9 @@ extension NewsViewController: UITableViewDataSource {
 
 // MARK: - TableView Delegate
 extension NewsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
+    }
     
 }
 // MARK: - Presenter Delegate

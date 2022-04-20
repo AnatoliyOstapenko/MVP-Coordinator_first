@@ -9,8 +9,7 @@ import UIKit
 
 class NewsTableViewCell: UITableViewCell {
     
-    lazy var presenter = NewsPresenter(image: self, networkService: NetworkService())
-    var newsImageView = UIImageView()
+    var newsImageView = NewsImageView(frame: .zero)
     var titleLabel = UILabel()
     var descriptionLabel = UILabel()
     var spinner = UIActivityIndicatorView()
@@ -26,10 +25,11 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     func updateNews(view: Articles) {
-        presenter.getImage(urlString: view.urlToImage)
+        //presenter.getImage(urlString: view.urlToImage)
         titleLabel.text = view.title
         descriptionLabel.text = view.description
-        newsImageView.image = imageCell
+        newsImageView.downloadNewsImage(urlString: view.urlToImage ?? "noImage")
+        //newsImageView.image = imageCell
     }
     
     func updateSecondVC(view: SecondModel) {
@@ -51,10 +51,7 @@ class NewsTableViewCell: UITableViewCell {
     }
 
     func setNewsImageView() {
-        addSubview(newsImageView)
-        newsImageView.clipsToBounds = true
-        newsImageView.layer.cornerRadius = 8
-        newsImageView.image = UIImage(named: "images")
+        contentView.addSubview(newsImageView)
         newsImageView.contentMode = .scaleAspectFill
         newsImageView.translatesAutoresizingMaskIntoConstraints = false
         newsImageView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
@@ -65,7 +62,7 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     func setTitleLabel() {
-        addSubview(titleLabel)
+        contentView.addSubview(titleLabel)
         titleLabel.text = "TITLE"
         titleLabel.font = .boldSystemFont(ofSize: 14)
         titleLabel.numberOfLines = 0
@@ -78,7 +75,7 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     func setDescriptionLabel() {
-        addSubview(descriptionLabel)
+        contentView.addSubview(descriptionLabel)
         descriptionLabel.text = "Description............"
         descriptionLabel.textAlignment = .left
         descriptionLabel.font = .systemFont(ofSize: 12, weight: .thin)
@@ -90,9 +87,4 @@ class NewsTableViewCell: UITableViewCell {
         descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
     }
 }
-//MARK: - NewsPresenterImage
-extension NewsTableViewCell: NewsPresenterImage {
-    func setImage(image: UIImage?) {
-            self.imageCell = image
-    }
-}
+

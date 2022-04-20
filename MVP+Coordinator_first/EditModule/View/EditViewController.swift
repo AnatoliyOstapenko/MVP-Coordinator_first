@@ -12,13 +12,14 @@ struct EditSection {
 }
 
 class EditViewController: UIViewController {
+    
     private let cell = "currentCell"
     var array = [
         EditSection(name: "Title"),
         EditSection(name: "Image"),
         EditSection(name: "Description")
     ]
-    
+    var model = SecondModel(title: "", description: "", image: "", isFavorite: false)
     var editTableView = UITableView()
     var cancelBarButton = UIBarButtonItem()
     var saveBarButton = UIBarButtonItem()
@@ -86,21 +87,21 @@ extension EditViewController: UITableViewDataSource, UITableViewDelegate {
             return titleCell
         case 1:
             let imageCell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.imageCell, for: indexPath) as! ImageTableViewCell
-            imageCell.updateImageUI(label: "gear")
+            imageCell.updateImageUI(label: "noImage")
             return imageCell
         default:
             let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.descriptionCell, for: indexPath) as! DescriptionTableViewCell
             return descriptionCell
         }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
         case 0:
             return 40
         case 1:
-            return 100
+            return 110
         default:
             return 200
         }

@@ -18,7 +18,7 @@ class DescriptionTableViewCell: UITableViewCell {
     }
     
     func setDescriptionTextView() {
-        descriptionTextView.text = "Don't wast your time, start typing...."
+        descriptionTextView.text = "Don't waste your time, start typing...."
         descriptionTextView.font = .systemFont(ofSize: 18, weight: .thin)
         contentView.addSubview(descriptionTextView)
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
